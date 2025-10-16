@@ -16,4 +16,24 @@ int main() {
     //     For each i, move forward by n elements to reach the paired ASCII code in the second half of codeArray.
     //     Convert that ASCII value to a character and print it.
 
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (codeArray[j] == i + 1) {
+                // point to the corresponding ASCII value (n positions ahead)
+                pointerArray[i] = &codeArray[j + n];
+                break;
+            }
+        }
+    }
+
+    // -------------------------------
+    // 2) Decode and print message
+    // -------------------------------
+    for (int i = 0; i < n; i++) {
+        cout << char(*pointerArray[i]);
+    }
+
+    cout << endl;
+    return 0;
+
 }
